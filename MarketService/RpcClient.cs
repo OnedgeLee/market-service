@@ -797,7 +797,7 @@ public class RpcClient
             var itemResult = await GetStates(hashBytes, ReservedAddresses.LegacyAccount.ToByteArray(), chunk);
             foreach (var kv in itemResult)
             {
-                var item = (ITradableItem)ItemFactory.Deserialize((Dictionary) kv.Value);
+                var item = (ITradableItem)ItemFactory.Deserialize(kv.Value);
                 // Avoid Exception when deserialize tradableId
                 var _ = item.TradableId;
                 itemBag.Add(item);
